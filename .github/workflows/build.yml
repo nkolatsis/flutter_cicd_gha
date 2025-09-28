@@ -9,8 +9,8 @@ on:
 jobs:
   flutter_job:
 
-    # Options: windows-latest or ubuntu-latest
-    runs-on: macos-latest
+    # Options: macos-latest, windows-latest, ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
 
@@ -24,5 +24,16 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+
+      # TODO: Move to git pre-commit hook
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyse project source
+        run: flutter analyze --fatal-warnings
+
+      - name: Run tests
+        run: flutter test
+
 
 
