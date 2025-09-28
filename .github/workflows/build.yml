@@ -35,5 +35,12 @@ jobs:
       - name: Run tests
         run: flutter test
 
+      - name: Build apk
+        run: flutter build apk
 
-
+      # TODO:
+        # Test firebase-app-distribution Github action [1]
+        # Sign Apk and push to Play Store
+        # Sort iOS signing and generate IPA
+      
+        # [1] https://prasadsunny1.medium.com/minimal-ci-cd-setup-with-flutter-and-github-actions-part-3-10eb1823dd96
